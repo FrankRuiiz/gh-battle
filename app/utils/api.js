@@ -51,6 +51,6 @@ module.exports = {
     const encodedURI = window.encodeURI(
       `https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=start&order=desc&type=Repositories`
     );
-    return Promise.get(encodedURI).then(({ data }) => data.items);
+    return axios.get(encodedURI).then(({ data }) => data.items);
   }
 };
