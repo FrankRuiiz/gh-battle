@@ -43,13 +43,13 @@ class Results extends React.Component {
     loading: true
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { playerOneName, playertwoName } = queryString.parse(
       this.props.location.search
     );
 
-    battle([playerOneName, playertwoName]).then(results => {
-      if (results === null) {
+    const players = await battle([playerOneName, playertwoName]);
+      if (players === null) {
         return this.setState(() => ({
           error:
             'Looks like there was an error. Check that both users exist on Github.',
@@ -59,11 +59,10 @@ class Results extends React.Component {
 
       this.setState(() => ({
         error: null,
-        winner: results[0],
-        loser: results[1],
+        winner: players[0],
+        loser: players[1],
         loading: false
       }));
-    });
   }
   render() {
     const { error, winner, loser, loading } = this.state;
