@@ -1,6 +1,6 @@
-const React = require('react');
-const api = require('../utils/api');
-const Loading = require('./Loading');
+import React from 'react';
+import { fetchPopularRepos } from '../utils/api';
+import Loading from './Loading';
 
 // This is an exmple of a stateless functional component
 function SelectLanguage({ selectedLanguage, onSelect }) {
@@ -67,7 +67,7 @@ class Popular extends React.Component {
       selectedLanguage: lang,
       repos: null
     }));
-    api.fetchPopularRepos(lang).then(repos => {
+    fetchPopularRepos(lang).then(repos => {
       this.setState(() => ({
         repos
       }));
@@ -89,4 +89,4 @@ class Popular extends React.Component {
   }
 }
 
-module.exports = Popular;
+export default Popular;

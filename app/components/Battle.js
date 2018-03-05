@@ -1,6 +1,6 @@
 import React from 'react';
-const Link = require('react-router-dom').Link;
-const PlayerPreview = require('./PlayerPreview');
+import { Link } from 'react-router-dom';
+import PlayerPreview from './PlayerPreview';
 
 class PlayerInput extends React.Component {
   constructor(props) {

@@ -12,4 +12,4 @@ function PlayerPreview({ avatar, username, children }) {
   );
 }
 
-module.exports = PlayerPreview;
+export default PlayerPreview;

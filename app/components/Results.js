@@ -1,9 +1,9 @@
 import React from 'react';
 import queryString from 'query-string';
-import api from '../utils/api';
-const Link = require('react-router-dom').Link;
-const PlayerPreview = require('./PlayerPreview');
-const Loading = require('./Loading');
+import { battle } from '../utils/api';
+import { Link } from 'react-router-dom';
+import PlayerPreview from './PlayerPreview';
+import Loading from './Loading';
 
 function Profile({ info }) {
   return (
@@ -52,7 +52,7 @@ class Results extends React.Component {
       this.props.location.search
     );
 
-    api.battle([playerOneName, playertwoName]).then(results => {
+    battle([playerOneName, playertwoName]).then(results => {
       if (results === null) {
         return this.setState(() => ({
           error:
